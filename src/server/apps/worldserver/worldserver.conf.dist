@@ -875,7 +875,7 @@ BirthdayTime = 1222964635
 #                     1+   - (Enabled)
 #                     0    - (Disabled, No limit)
 
-PlayerLimit = 1000
+PlayerLimit = 10000
 
 #
 #    World.RealmAvailability
@@ -1009,7 +1009,7 @@ SocketTimeOutTimeActive = 60000
 #                     3+ - (Enabled, More checks before kick)
 #                     0  - (Disabled)
 
-MaxOverspeedPings = 2
+MaxOverspeedPings = 0
 
 #
 #     DisconnectToleranceInterval
@@ -1183,7 +1183,7 @@ Warden.NumOtherChecks = 7
 #        Default:     600 - (10 Minutes)
 #                     0 - (Disabled, client won't be kicked)
 
-Warden.ClientResponseDelay = 600
+Warden.ClientResponseDelay = 0
 
 #
 #    Warden.ClientCheckHoldOff
@@ -1929,7 +1929,7 @@ CharactersPerRealm = 10
 #        Range:       1-10
 #        Default:     1
 
-HeroicCharactersPerRealm = 1
+HeroicCharactersPerRealm = 10
 
 #
 #    CharacterCreating.MinLevelForHeroicCharacter
@@ -2001,7 +2001,7 @@ PlayerStart.String = ""
 #        Default:     0 - Disabled
 #                     1 - Enabled
 
-EnablePlayerSettings = 0
+EnablePlayerSettings = 1
 
 #
 #    MaxPlayerLevel
@@ -2092,14 +2092,14 @@ Rate.Talent.Pet = 1
 #                     1 - (Rate.Energy)
 
 Rate.Health            = 1
-Rate.Mana              = 1
-Rate.Rage.Income       = 1
+Rate.Mana              = 2
+Rate.Rage.Income       = 1.9
 Rate.Rage.Loss         = 1
-Rate.RunicPower.Income = 1
+Rate.RunicPower.Income = 2
 Rate.RunicPower.Loss   = 1
-Rate.Focus             = 1
-Rate.Energy            = 1
-Rate.Loyalty           = 1
+Rate.Focus             = 2
+Rate.Energy            = 1.8
+Rate.Loyalty           = 2
 
 #
 #    Rate.Rest.InGame
@@ -2454,7 +2454,7 @@ Rate.ArenaPoints = 1
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-PvPToken.Enable = 0
+PvPToken.Enable = 1
 
 #
 #    PvPToken.MapAllowType
@@ -2548,7 +2548,7 @@ DurabilityLossChance.Block = 0.05
 #                     MaxPlayerLevel+1 - (Disabled)
 #                     -10              - (Enabled, Level 1+ characters have 10 minute duration)
 
-Death.SicknessLevel = 11
+Death.SicknessLevel = 81
 
 #
 #    Death.CorpseReclaimDelay.PvP
@@ -3195,7 +3195,7 @@ AccountInstancesPerHour = 5
 #                  0 - Disable
 #
 
-Instance.SharedNormalHeroicId = 1
+Instance.SharedNormalHeroicId = 0
 
 #
 #    DungeonAccessRequirements.PrintMode
@@ -3238,7 +3238,7 @@ DungeonAccessRequirements.OptionalStringID = 0
 #        Default:     0 - Disabled
 #                     1 - Enabled
 
-JoinBGAndLFG.Enable = 0
+JoinBGAndLFG.Enable = 1
 
 #
 #     DungeonFinder.OptionsMask
@@ -3275,7 +3275,7 @@ LFG.MaxKickCount = 2
 #        Default:     900 secs (15 minutes)
 #                     0 - Disabled
 
-LFG.KickPreventionTimer = 900
+LFG.KickPreventionTimer = 0
 
 #
 #    DungeonAccessRequirements.LFGLevelDBCOverride
@@ -3360,7 +3360,7 @@ Guild.BankEventLogRecordsCount = 25
 #        Range:       0-9
 #        Default:     9
 
-MinPetitionSigns = 9
+MinPetitionSigns = 0
 
 #
 #    Guild.CharterCost
