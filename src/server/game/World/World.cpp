@@ -530,10 +530,10 @@ void World::LoadConfigSettings(bool reload)
     _int_configs[CONFIG_CHARACTER_CREATING_DISABLED_CLASSMASK] = sConfigMgr->GetOption<int32>("CharacterCreating.Disabled.ClassMask", 0);
 
     _int_configs[CONFIG_CHARACTERS_PER_REALM] = sConfigMgr->GetOption<int32>("CharactersPerRealm", 10);
-    if (_int_configs[CONFIG_CHARACTERS_PER_REALM] < 1 || _int_configs[CONFIG_CHARACTERS_PER_REALM] > 10)
+    if (_int_configs[CONFIG_CHARACTERS_PER_REALM] < 1 || _int_configs[CONFIG_CHARACTERS_PER_REALM] > 50)
     {
         LOG_ERROR("server.loading", "CharactersPerRealm ({}) must be in range 1..10. Set to 10.", _int_configs[CONFIG_CHARACTERS_PER_REALM]);
-        _int_configs[CONFIG_CHARACTERS_PER_REALM] = 10;
+        _int_configs[CONFIG_CHARACTERS_PER_REALM] = 50;
     }
 
     // must be after CONFIG_CHARACTERS_PER_REALM

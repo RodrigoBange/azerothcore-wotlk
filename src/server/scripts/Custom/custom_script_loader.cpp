@@ -17,14 +17,29 @@
 
 // This is where scripts' loading functions should be declared:
 // void MyExampleScript()
-void AddSC_stealth_speed_rogue();
-void AddSC_stealth_speed_druid();
+//void AddSC_stealth_speed_rogue();
+//void AddSC_stealth_speed_druid();
+void AddSC_spell_backstab_front();
+void AddSC_ShapeshiftRaceForms();
+void AddSC_RespawnAtInstanceEntrance();
+void AddSC_IccBuffScript();
+
+// -- Debug
+void AddSC_DebugCanFlyZone();
+
 
 // The name of this function should match:
 // void Add${NameOfDirectory}Scripts()
 void AddCustomScripts()
 {
     // MyExampleScript()
-    AddSC_stealth_speed_rogue();
-    AddSC_stealth_speed_druid();
+    //AddSC_stealth_speed_rogue();
+    //AddSC_stealth_speed_druid();
+    AddSC_spell_backstab_front();
+    AddSC_ShapeshiftRaceForms();
+    AddSC_RespawnAtInstanceEntrance();
+    AddSC_IccBuffScript();
+
+    // -- Debug
+    //AddSC_DebugCanFlyZone();
 }

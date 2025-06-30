@@ -62,6 +62,9 @@
 #include "IVMapMgr.h"
 #include "VMapMgr2.h"
 
+// Whitelist channeled spells
+#include "AllowedMovementCasts.h"
+
 extern pEffect SpellEffects[TOTAL_SPELL_EFFECTS];
 
 SpellDestination::SpellDestination()
@@ -3603,8 +3606,14 @@ SpellCastResult Spell::prepare(SpellCastTargets const* targets, AuraEffect const
     // (even if they are interrupted on moving, spells with almost immediate effect get to have their effect processed before movement interrupter kicks in)
     if ((m_spellInfo->IsChanneled() || m_casttime) && m_caster->IsPlayer() && m_caster->isMoving() && m_spellInfo->InterruptFlags & SPELL_INTERRUPT_FLAG_MOVEMENT && !IsTriggered())
     {
+        const auto& whitelist = AllowedMovementCasts::GetSpellWhitelist();
+
+        if (whitelist.find(m_spellInfo->Id) != whitelist.end())
+        {
+            // Allow movement while casting this spell (it's whitelisted)
+        }
         // 1. Has casttime, 2. Or doesn't have flag to allow action during channel
-        if (m_casttime || !m_spellInfo->IsActionAllowedChannel())
+        else if (m_casttime || !m_spellInfo->IsActionAllowedChannel())
         {
             SendCastResult(SPELL_FAILED_MOVING);
             finish(false);

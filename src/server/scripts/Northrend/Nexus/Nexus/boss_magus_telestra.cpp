@@ -186,7 +186,7 @@ struct boss_magus_telestra : public BossAI
         case EVENT_MAGUS_HEALTH2:
             if (me->HealthBelowPct(11))
             {
-                SetInvincibility(true);
+                //SetInvincibility(true);
                 me->CastSpell(me, SPELL_START_SUMMON_CLONES, false);
                 events.ScheduleEvent(EVENT_MAGUS_RELOCATE, 3500ms);
                 Talk(SAY_SPLIT);

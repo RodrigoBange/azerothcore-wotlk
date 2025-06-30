@@ -116,9 +116,9 @@ BindIP = "0.0.0.0"
 #                     "127.0.0.1;3306;acore;acore;acore_world"      - (WorldDatabaseInfo)
 #                     "127.0.0.1;3306;acore;acore;acore_characters" - (CharacterDatabaseInfo)
 
-LoginDatabaseInfo     = "127.0.0.1;3306;acore;acore;acore_auth"
-WorldDatabaseInfo     = "127.0.0.1;3306;acore;acore;acore_world"
-CharacterDatabaseInfo = "127.0.0.1;3306;acore;acore;acore_characters"
+LoginDatabaseInfo     = "127.0.0.1;3306;acore;Acore!123;acore_auth"
+WorldDatabaseInfo     = "127.0.0.1;3306;acore;Acore!123;acore_world"
+CharacterDatabaseInfo = "127.0.0.1;3306;acore;Acore!123;acore_characters"
 
 #
 #    LoginDatabase.WorkerThreads
@@ -1583,7 +1583,7 @@ GM.StartLevel = 1
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-GM.AllowInvite = 0
+GM.AllowInvite = 1
 
 #
 #    GM.AllowFriend
@@ -1591,7 +1591,7 @@ GM.AllowInvite = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-GM.AllowFriend = 0
+GM.AllowFriend = 1
 
 #
 #    GM.LowerSecurity
@@ -1921,7 +1921,7 @@ CharactersPerAccount = 50
 #        Range:       1-10
 #        Default:     10 - (Client limitation)
 
-CharactersPerRealm = 10
+CharactersPerRealm = 50
 
 #
 #    HeroicCharactersPerRealm
@@ -1929,7 +1929,7 @@ CharactersPerRealm = 10
 #        Range:       1-10
 #        Default:     1
 
-HeroicCharactersPerRealm = 10
+HeroicCharactersPerRealm = 50
 
 #
 #    CharacterCreating.MinLevelForHeroicCharacter
@@ -2092,7 +2092,7 @@ Rate.Talent.Pet = 1
 #                     1 - (Rate.Energy)
 
 Rate.Health            = 1
-Rate.Mana              = 2
+Rate.Mana              = 6
 Rate.Rage.Income       = 1.9
 Rate.Rage.Loss         = 1
 Rate.RunicPower.Income = 2
@@ -2191,7 +2191,7 @@ SpellQueue.Window = 400
 #        Range:       0-11
 #        Default:     2
 
-MaxPrimaryTradeSkill = 2
+MaxPrimaryTradeSkill = 11
 
 #
 #    SkillChance.Prospecting
@@ -3149,7 +3149,7 @@ Instance.IgnoreLevel = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-Instance.IgnoreRaid = 0
+Instance.IgnoreRaid = 1
 
 #
 #    Instance.ResetTimeHour
@@ -4165,7 +4165,7 @@ AllowTwoSide.Accounts = 1
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Calendar = 0
+AllowTwoSide.Interaction.Calendar = 1
 
 #
 #    AllowTwoSide.Interaction.Chat
@@ -4173,7 +4173,7 @@ AllowTwoSide.Interaction.Calendar = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Chat = 0
+AllowTwoSide.Interaction.Chat = 1
 
 #
 #    AllowTwoSide.Interaction.Emote
@@ -4181,7 +4181,7 @@ AllowTwoSide.Interaction.Chat = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Emote = 0
+AllowTwoSide.Interaction.Emote = 1
 
 #
 #    AllowTwoSide.Interaction.Channel
@@ -4189,7 +4189,7 @@ AllowTwoSide.Interaction.Emote = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Channel = 0
+AllowTwoSide.Interaction.Channel = 1
 
 #
 #    AllowTwoSide.Interaction.Group
@@ -4197,7 +4197,7 @@ AllowTwoSide.Interaction.Channel = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Group = 0
+AllowTwoSide.Interaction.Group = 1
 
 #
 #    AllowTwoSide.Interaction.Guild
@@ -4205,7 +4205,7 @@ AllowTwoSide.Interaction.Group = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Guild = 0
+AllowTwoSide.Interaction.Guild = 1
 
 #
 #    AllowTwoSide.Interaction.Arena
@@ -4213,7 +4213,7 @@ AllowTwoSide.Interaction.Guild = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Arena = 0
+AllowTwoSide.Interaction.Arena = 1
 
 #
 #    AllowTwoSide.Interaction.Auction
@@ -4222,7 +4222,7 @@ AllowTwoSide.Interaction.Arena = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Auction = 0
+AllowTwoSide.Interaction.Auction = 1
 
 #
 #    AllowTwoSide.Interaction.Mail
@@ -4230,7 +4230,7 @@ AllowTwoSide.Interaction.Auction = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Interaction.Mail = 0
+AllowTwoSide.Interaction.Mail = 1
 
 #
 #    AllowTwoSide.WhoList
@@ -4238,7 +4238,7 @@ AllowTwoSide.Interaction.Mail = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.WhoList = 0
+AllowTwoSide.WhoList = 1
 
 #
 #    AllowTwoSide.AddFriend
@@ -4246,7 +4246,7 @@ AllowTwoSide.WhoList = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.AddFriend = 0
+AllowTwoSide.AddFriend = 1
 
 #
 #    AllowTwoSide.Trade
@@ -4254,7 +4254,7 @@ AllowTwoSide.AddFriend = 0
 #        Default:     0 - (Disabled)
 #                     1 - (Enabled)
 
-AllowTwoSide.Trade = 0
+AllowTwoSide.Trade = 1
 
 #
 #    TalentsInspecting
