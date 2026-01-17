@@ -1775,7 +1775,7 @@ PersistentCharacterCleanFlags = 0
 #        Disabling this and then having your character learn spells which require DBC edits can result in the character not being saved in the database
 #        Disable AT YOUR OWN RISK
 
-ValidateSkillLearnedBySpells = 1
+ValidateSkillLearnedBySpells = 0
 
 #
 ###################################################################################################

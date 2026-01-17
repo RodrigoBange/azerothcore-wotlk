@@ -148,7 +148,6 @@ namespace WorldPackets
 
     namespace Misc
     {
-        class MinimapPingClient;
         class RandomRollClient;
     }
 
@@ -159,35 +158,6 @@ namespace WorldPackets
         class PetStopAttack;
         class PetSpellAutocast;
         class RequestPetInfo;
-    }
-
-    namespace Query
-    {
-        class NameQuery;
-        class TimeQuery;
-        class CorpseMapPositionQuery;
-    }
-
-    namespace Item
-    {
-        class SplitItem;
-        class SwapInventoryItem;
-        class AutoEquipItemSlot;
-        class SwapItem;
-        class AutoEquipItem;
-        class DestroyItem;
-        class ReadItem;
-        class SellItem;
-        class BuybackItem;
-        class BuyItemInSlot;
-        class BuyItem;
-        class ListInventory;
-        class AutoStoreBagItem;
-        class WrapItem;
-        class SocketGems;
-        class CancelTempEnchantment;
-        class ItemRefundInfo;
-        class ItemRefund;
     }
 }
 
@@ -378,7 +348,7 @@ struct PacketCounter
 class WorldSession
 {
 public:
-    WorldSession(uint32 id, std::string&& name, uint32 accountFlags, std::shared_ptr<WorldSocket> sock, AccountTypes sec, uint8 expansion, time_t mute_time, LocaleConstant locale, uint32 recruiter, bool isARecruiter, bool skipQueue, uint32 TotalTime);
+    WorldSession(uint32 id, std::string&& name, uint32 accountFlags, std::shared_ptr<WorldSocket> sock, AccountTypes sec, uint8 expansion, time_t mute_time, LocaleConstant locale, uint32 recruiter, bool isARecruiter, bool skipQueue, uint32 TotalTime, bool is_bot = false);
     ~WorldSession();
 
     uint32 GetAccountFlags() const { return _accountFlags; }
@@ -419,7 +389,7 @@ public:
     }
 
     void SendSetPhaseShift(uint32 phaseShift);
-    void SendTimeQueryResponse();
+    void SendQueryTimeResponse();
 
     void SendAuthResponse(uint8 code, bool shortForm, uint32 queuePos = 0);
     void SendClientCacheVersion(uint32 version);
@@ -710,9 +680,9 @@ public:                                                 // opcodes handlers
     void HandleGameObjectUseOpcode(WorldPacket& recPacket);
     void HandleGameobjectReportUse(WorldPacket& recvPacket);
 
-    void HandleNameQueryOpcode(WorldPackets::Query::NameQuery& packet);
+    void HandleNameQueryOpcode(WorldPacket& recvPacket);
 
-    void HandleTimeQueryOpcode(WorldPackets::Query::TimeQuery& packet);
+    void HandleQueryTimeOpcode(WorldPacket& recvPacket);
 
     void HandleCreatureQueryOpcode(WorldPacket& recvPacket);
 
@@ -852,21 +822,21 @@ public:                                                 // opcodes handlers
     void HandleQueryNextMailTime(WorldPacket& recvData);
     void HandleCancelChanneling(WorldPacket& recvData);
 
-    void HandleSplitItemOpcode(WorldPackets::Item::SplitItem& packet);
-    void HandleSwapInvItemOpcode(WorldPackets::Item::SwapInventoryItem& packet);
-    void HandleDestroyItemOpcode(WorldPackets::Item::DestroyItem& packet);
-    void HandleAutoEquipItemOpcode(WorldPackets::Item::AutoEquipItem& packet);
+    void HandleSplitItemOpcode(WorldPacket& recvPacket);
+    void HandleSwapInvItemOpcode(WorldPacket& recvPacket);
+    void HandleDestroyItemOpcode(WorldPacket& recvPacket);
+    void HandleAutoEquipItemOpcode(WorldPacket& recvPacket);
     void HandleItemQuerySingleOpcode(WorldPacket& recvPacket);
-    void HandleSellItemOpcode(WorldPackets::Item::SellItem& packet);
-    void HandleBuyItemInSlotOpcode(WorldPackets::Item::BuyItemInSlot& packet);
-    void HandleBuyItemOpcode(WorldPackets::Item::BuyItem& packet);
-    void HandleListInventoryOpcode(WorldPackets::Item::ListInventory& packet);
-    void HandleAutoStoreBagItemOpcode(WorldPackets::Item::AutoStoreBagItem& packet);
-    void HandleReadItem(WorldPackets::Item::ReadItem& packet);
-    void HandleAutoEquipItemSlotOpcode(WorldPackets::Item::AutoEquipItemSlot& packet);
-    void HandleSwapItem(WorldPackets::Item::SwapItem& packet);
-    void HandleBuybackItem(WorldPackets::Item::BuybackItem& packet);
-    void HandleWrapItemOpcode(WorldPackets::Item::WrapItem& packet);
+    void HandleSellItemOpcode(WorldPacket& recvPacket);
+    void HandleBuyItemInSlotOpcode(WorldPacket& recvPacket);
+    void HandleBuyItemOpcode(WorldPacket& recvPacket);
+    void HandleListInventoryOpcode(WorldPacket& recvPacket);
+    void HandleAutoStoreBagItemOpcode(WorldPacket& recvPacket);
+    void HandleReadItem(WorldPacket& recvPacket);
+    void HandleAutoEquipItemSlotOpcode(WorldPacket& recvPacket);
+    void HandleSwapItem(WorldPacket& recvPacket);
+    void HandleBuybackItem(WorldPacket& recvPacket);
+    void HandleWrapItemOpcode(WorldPacket& recvPacket);
 
     void HandleAttackSwingOpcode(WorldPacket& recvPacket);
     void HandleAttackStopOpcode(WorldPacket& recvPacket);
@@ -912,7 +882,7 @@ public:                                                 // opcodes handlers
 
     void HandleReclaimCorpseOpcode(WorldPacket& recvPacket);
     void HandleCorpseQueryOpcode(WorldPacket& recvPacket);
-    void HandleCorpseMapPositionQuery(WorldPackets::Query::CorpseMapPositionQuery& packet);
+    void HandleCorpseMapPositionQuery(WorldPacket& recvPacket);
     void HandleResurrectResponseOpcode(WorldPacket& recvPacket);
     void HandleSummonResponseOpcode(WorldPacket& recvData);
 
@@ -983,7 +953,7 @@ public:                                                 // opcodes handlers
 
     void HandleWardenDataOpcode(WorldPacket& recvData);
     void HandleWorldTeleportOpcode(WorldPacket& recvData);
-    void HandleMinimapPingOpcode(WorldPackets::Misc::MinimapPingClient& packet);
+    void HandleMinimapPingOpcode(WorldPacket& recvData);
     void HandleRandomRollOpcode(WorldPackets::Misc::RandomRollClient& packet);
     void HandleFarSightOpcode(WorldPacket& recvData);
     void HandleSetDungeonDifficultyOpcode(WorldPacket& recvData);
@@ -1056,12 +1026,12 @@ public:                                                 // opcodes handlers
     void HandleRequestPetInfo(WorldPackets::Pet::RequestPetInfo& packet);
 
     // Socket gem
-    void HandleSocketOpcode(WorldPackets::Item::SocketGems& packet);
+    void HandleSocketOpcode(WorldPacket& recvData);
 
-    void HandleCancelTempEnchantmentOpcode(WorldPackets::Item::CancelTempEnchantment& packet);
+    void HandleCancelTempEnchantmentOpcode(WorldPacket& recvData);
 
-    void HandleItemRefundInfoRequest(WorldPackets::Item::ItemRefundInfo& packet);
-    void HandleItemRefund(WorldPackets::Item::ItemRefund& packet);
+    void HandleItemRefundInfoRequest(WorldPacket& recvData);
+    void HandleItemRefund(WorldPacket& recvData);
 
     void HandleChannelVoiceOnOpcode(WorldPacket& recvData);
     void HandleVoiceSessionEnableOpcode(WorldPacket& recvData);

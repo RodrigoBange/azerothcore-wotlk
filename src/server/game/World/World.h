@@ -310,6 +310,9 @@ private:
     // used versions
     std::string _dbVersion;
     uint32 _dbClientCacheVersion;
+#ifdef MOD_PLAYERBOTS
+    std::string m_PlayerbotsDBRevision;
+#endif
 
     void ProcessQueryCallbacks();
     QueryCallbackProcessor _queryProcessor;
